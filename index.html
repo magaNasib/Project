@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <script
+      src="https://kit.fontawesome.com/fa420b4f82.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container h-100">
+        <nav class="row justifyBetween mobile-col">
+          <div class="logo row justifyBetween">
+            <a href="#"> HackTravel </a>
+            <a href="#" class="menu" id="menu"
+              ><i class="fa-solid fa-bars"></i>
+            </a>
+          </div>
+          <div class="navbar row right" id="toggleMenu">
+            <ul class="">
+              <li>
+                <a href="#">Home</a>
+                <a href="tours.html">Tours</a>
+                <a href="#">About</a>
+                <a href="#">Gallery</a>
+                <a href="#">Contacts</a>
+              </li>
+            </ul>
+            <a href="#"
+              ><i class="fa-solid fa-user"></i>
+              Profile
+            </a>
+          </div>
+        </nav>
+        <div class="banner">
+          <div class="text-center">
+            <h1>Enjoy Your Dream Vacation</h1>
+            <p>
+              Travel to the any corner of the world, without going around in
+              circles.
+            </p>
+          </div>
+          <div class="inputs">
+            <form action="#">
+              <input type="text" placeholder="From" name="" id="" />
+              <input type="text" name="" placeholder="To" id="" />
+              <input type="text" name="" placeholder="Budget" id="" />
+              <button type="button" value="Search" name="" id=""></button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="offers">
+        <div class="container">
+          <div class="title">
+            <h3>Best Offers</h3>
+            <div class="line"></div>
+          </div>
+          <div class="row cards" id="cards"></div>
+        </div>
+      </section>
+      <section class="viewAll">
+        <a href="#"> VIEW ALL TOURS </a>
+      </section>
+    </main>
+
+    <script>
+      let menu = document.getElementById("menu");
+      let toggleMenu = document.getElementById("toggleMenu");
+      menu.addEventListener("click", (a) => {
+        toggleMenu.classList.toggle("show");
+      });
+    </script>
+  </body>
+</html>
