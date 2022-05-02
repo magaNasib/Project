@@ -4,14 +4,24 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/responsive.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="jquery-3.6.0.min.js"></script>
     <script
       src="https://kit.fontawesome.com/fa420b4f82.js"
       crossorigin="anonymous"
     ></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
     <title>Document</title>
   </head>
+
   <body>
     <header class="toursHeader">
       <div class="container h-100">
@@ -25,7 +35,7 @@
           <div class="navbar row right" id="toggleMenu">
             <ul class="">
               <li>
-                <a href="#">Home</a>
+                <a href="index.html">Home</a>
                 <a href="#">Tours</a>
                 <a href="#">About</a>
                 <a href="#">Gallery</a>
@@ -42,9 +52,9 @@
     </header>
     <div class="popup-info" id="popup" style="display: none">
       <div class="parent">
-        <a id="clsBtn" class="close"><i class="fa-solid fa-xmark"></i> </a>
+        <a id="close-btn" class="close"><i class="fa-solid fa-xmark"></i></a>
         <div class="img">
-          <img src="images/box-offer-02-370x310.jpg" alt="" />
+          <img id="bckgpopup" src="images/box-offer-02-370x310.jpg" alt="" />
         </div>
         <div class="content">
           <div class="fromTo">
@@ -54,20 +64,12 @@
           </div>
           <div class="info">
             <div class="row">
-              <strong>Price: </strong>
-              <p></p>
-            </div>
-            <div class="row">
-              <strong>Ticket Amount: </strong>
-              <p></p>
-            </div>
-            <div class="row">
               <strong>Flight Time: </strong>
-              <p id="flightTime2"></p>
+              <p id="flighttime2"></p>
             </div>
             <div class="row">
               <strong>Free Baggage: </strong>
-              <p id="freeBag"></p>
+              <p id="freebag"></p>
             </div>
             <div class="row">
               <strong>Handbag:</strong>
@@ -104,14 +106,14 @@
                 </div>
                 <div class="row justifyBetween alignCenter">
                   <span class="minus">-</span>
-                  <input type="number" id="baby" value="1" min="0" />
+                  <input type="number" id="baby" value="0" min="0" />
                   <span class="plus">+</span>
                 </div>
               </div>
             </div>
             <div class="row">
               <strong class="total">Total: </strong>
-              <p id="totalPrice">$1055</p>
+              <p id="totalprice">$1055</p>
             </div>
             <div class="chkout">
               <a href="#" id="chkout">Checkout</a>
@@ -131,14 +133,19 @@
             <form action="#" class="tour-form">
               <div class="">
                 <h4>Search</h4>
-                <input
-                  type="text"
-                  name=""
-                  placeholder="from"
-                  id="dF"
-                  class="dF"
-                />
-                <input type="text" name="" id="dT" placeholder="to" />
+                <select
+                  class="js-example-basic-single"
+                  name="from"
+                  style="border: none !important"
+                >
+                  <option disabled selected>From</option>
+
+                  <option value="WY">Wyoming</option></select
+                >&nbsp;
+                <select class="js-example-basic-single" name="to">
+                  <option disabled selected>To</option>
+                </select>
+
                 <input
                   type="text"
                   name=""
@@ -169,7 +176,12 @@
                       </div>
                       <div class="row justifyBetween alignCenter">
                         <span class="minus">-</span>
-                        <input type="number" id="passenger" value="2" min="0" />
+                        <input
+                          type="number"
+                          id="passengers"
+                          value="2"
+                          min="0"
+                        />
                         <span class="plus">+</span>
                       </div>
                     </div>
@@ -214,127 +226,16 @@
                 <a><i class="fa-solid fa-table-cells"></i></a>
               </div>
             </div>
-            <div class="row cards" id="cards">
-              <!-- <div class="card">
-                <div class="img">
-                  <img src="images/turkey.jpg" alt="" />
-                </div>
-                <div class="content">
-                  <div class="top">
-                    <h5>Turkey</h5>
-                    <div>
-                      <del>$3000</del>
-                      <span>$2000</span>
-                    </div>
-                  </div>
-                  <p class="cities">
-                    Istanbul, Antalya, Ephesus • <span>8</span> days
-                  </p>
-                </div>
-              </div>
-              <div class="card">
-                <div class="img">
-                  <img src="images/box-offer-02-370x310.jpg" alt="" />
-                </div>
-                <div class="content">
-                  <div class="top">
-                    <h5>Spain</h5>
-                    <div>
-                      <del>$3000</del>
-                      <span>$2000</span>
-                    </div>
-                  </div>
-                  <p class="cities">
-                    Madrid, Andalucia, Barcelona • <span>9</span> days
-                  </p>
-                </div>
-              </div>
-              <div class="card">
-                <div class="img">
-                  <img src="images/box-offer-02-370x310.jpg" alt="" />
-                </div>
-                <div class="content">
-                  <div class="top">
-                    <h5>Spain</h5>
-                    <div>
-                      <del>$3000</del>
-                      <span>$2000</span>
-                    </div>
-                  </div>
-                  <p class="cities">
-                    Madrid, Andalucia, Barcelona • <span>9</span> days
-                  </p>
-                </div>
-              </div>
-              <div class="card">
-                <div class="img">
-                  <img src="images/box-offer-02-370x310.jpg" alt="" />
-                </div>
-                <div class="content">
-                  <div class="top">
-                    <h5>Spain</h5>
-                    <div>
-                      <del>$3000</del>
-                      <span>$2000</span>
-                    </div>
-                  </div>
-                  <p class="cities">
-                    Madrid, Andalucia, Barcelona • <span>9</span> days
-                  </p>
-                </div>
-              </div>
-              <div class="card">
-                <div class="img">
-                  <img src="images/box-offer-02-370x310.jpg" alt="" />
-                </div>
-                <div class="content">
-                  <div class="top">
-                    <h5>Spain</h5>
-                    <div>
-                      <del>$3000</del>
-                      <span>$2000</span>
-                    </div>
-                  </div>
-                  <p class="cities">
-                    Madrid, Andalucia, Barcelona • <span>9</span> days
-                  </p>
-                </div>
-              </div> -->
-            </div>
+            <div class="row cards" id="cards"></div>
           </div>
         </div>
       </section>
     </main>
-
     <script>
-      let menu = document.getElementById("menu");
-      let inputChoice = document.getElementById("inputChoice");
-      let toggleChoice = document.getElementById("toggleChoice");
-      let toggleMenu = document.getElementById("toggleMenu");
-      menu.addEventListener("click", (a) => {
-        console.log(flightTime);
-        toggleMenu.classList.toggle("show");
+      // In your Javascript (external .js resource or <script> tag)
+      $(document).ready(function () {
+        $(".js-example-basic-single").select2();
       });
-      inputChoice.addEventListener("click", () => {
-        toggleChoice.classList.toggle("show");
-      });
-    </script>
-    <script>
-      let minus = document.getElementsByClassName("minus");
-      let plus = document.getElementsByClassName("plus");
-      let decrease = (a) => {
-        let minusInput = a.target.parentElement.children[1];
-        minusInput.value = minusInput.value <= 0 ? 0 : --minusInput.value;
-      };
-      let increase = (a) => {
-        let plusInput = a.target.parentElement.children[1];
-        // minusInput.value--;
-        plusInput.value = plusInput.value <= 0 ? 0 : ++plusInput.value;
-      };
-      for (let i = 0; i < minus.length; i++) {
-        minus[i].addEventListener("click", decrease);
-        plus[i].addEventListener("click", increase);
-      }
     </script>
     <script src="js/main.js"></script>
   </body>
